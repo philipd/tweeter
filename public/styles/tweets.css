@@ -1,0 +1,50 @@
+section#tweets {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+article.tweet {
+  border-style: solid;
+  border-width: thick;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0em 1em 0em 1em;
+}
+
+.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em 0.5em 0em 0.5em;
+}
+
+.tweet header .username {
+  font-weight: 300;
+}
+
+.tweet header .userid {
+  color:transparent;
+}
+
+.tweet footer {
+  font-size: medium;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: thick 0 0 0;
+  padding: 1em 0.5em 1em 0.5em;
+}
+
+.tweet .content {
+  padding: 1em 0.5em 1em 0.5em;
+}
+
+.tweet:hover .userid{
+  color:lightsteelblue;
+}
+
+.tweet:hover {
+  box-shadow: 20px 20px 0px -5px lightsteelblue;
+}

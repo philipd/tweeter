@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-top: 2em;
+  margin-bottom: 2em;
 } 
 
 .new-tweet > form > div {
@@ -29,4 +30,9 @@
   background-color: #4056A1;
   color: #FFFFFF;
   margin-top: 2px;
+}
+
+.new-tweet .invalid {
+  color: red;
+
 }
