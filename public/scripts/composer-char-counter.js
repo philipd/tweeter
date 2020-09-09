@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("We're in!");
   $("section.new-tweet textarea").on('keyup',
     function(event) {
       let length = $(this).val().length;
