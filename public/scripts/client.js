@@ -4,22 +4,22 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const createTweetElement = function(tweetData) {
-  let tweetHTML =
-    `<article class="tweet">
-        <header>
-          <div class="userinfo">
-            <img class="avatar" src="${tweetData.user.avatars}">
-            <div class="username">${tweetData.user.name}</div>
-          </div>
-          <div class="userid">${tweetData.user.handle}</div>
-        </header>
-        <div class="content">${tweetData.content.text}</div>
-        <footer>
-          <span class="date-tweeted">${tweetData.created_at}</span>
-          <span class="links"># $ &</span>
-        </footer>
-      </article>`;
-  return $(tweetHTML);
+  let $article = $('<article>').addClass('tweet');
+  let $header = $('<header>');
+  let $userinfo = $('<div>').addClass('userinfo');
+  let $avatar = $('<img>').addClass('avatar').attr('src',tweetData.user.avatars);
+  let $username = $('<div>').addClass('username').text(tweetData.user.name);
+  let $userid = $('<div>').addClass('userid').text(tweetData.user.handle);
+  let $content = $('<div>').addClass('content').text(tweetData.content.text);
+  let $footer = $('<footer>');
+  let $dateTweeted = $('<span>').addClass('date-tweeted').text(tweetData.created_at);
+  let $links = $('<span>').text('# $ &');
+  
+  $userinfo.append($avatar, $username);
+  $header.append($userinfo, $userid);
+  $footer.append($dateTweeted, $links)
+  $article.append($header, $content, $footer);
+  return $article;
 };
 
 const renderTweets = function(tweets) {
