@@ -32,7 +32,7 @@ const renderTweets = function(tweets) {
 const loadTweets = function() {
   $.ajax('tweets/', { method: 'GET' })
     .then(function(response) {
-      console.log('Success: ', response);
+      // console.log('Success: ', response);
       renderTweets(response);
     });
 };
@@ -41,17 +41,27 @@ $(document).ready(function() {
   loadTweets();
 
   const $tweetForm = $('#new-tweet-form');
+
   $tweetForm.submit(function(event) {
     event.preventDefault();
-    // serialize the form data for submission to the server
-    const serializedTweet = $(this).serialize();
-    console.log(serializedTweet);
+    // validate data
+    tweetText = $('#tweet-text').val();
 
-    // submit serialized data to the server via a POST request to `/api/posts`
-    $.post('tweets/', serializedTweet)
-      .then((response) => {
-        console.log(response);
-      });
+    if (tweetText.trim().length === 0) {
+      alert('Empty tweets are not allowed')
+    } else if (tweetText.length > 140) {
+      alert('Your tweet is too long')
+    } else {
+      // serialize the form data for submission to the server
+      const serializedTweet = $(this).serialize();
+      $('#tweet-text').val(''); 
+      // submit serialized data to the server via a POST request to `/api/posts`
+      $.post('tweets/', serializedTweet)
+        .then((response) => {
+          // console.log(response);
+          loadTweets();
+        });
+    }
   });
 
 
