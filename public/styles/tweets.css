@@ -16,11 +16,23 @@ article.tweet {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 1em 0.5em 0em 0.5em;
 }
 
 .tweet header .username {
   font-weight: 300;
+}
+
+div.userinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.userinfo .username {
+  margin-left: 1em;
 }
 
 .tweet header .userid {
