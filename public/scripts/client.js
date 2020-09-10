@@ -14,7 +14,7 @@ const createTweetElement = function(tweetData) {
   let $footer = $('<footer>');
   let $dateTweeted = $('<span>').addClass('date-tweeted').text(tweetData.created_at);
   let $links = $('<span>').text('# $ &');
-  
+
   $userinfo.append($avatar, $username);
   $header.append($userinfo, $userid);
   $footer.append($dateTweeted, $links)
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
   $tweetForm.submit(function(event) {
     event.preventDefault();
-    // validate data
+
     tweetText = $('#tweet-text').val();
 
     if (tweetText.trim().length === 0) {
@@ -54,7 +54,8 @@ $(document).ready(function() {
     } else {
       // serialize the form data for submission to the server
       const serializedTweet = $(this).serialize();
-      $('#tweet-text').val(''); 
+      // clear the form and trigger 'keyup' so the counter is updated
+      $('#tweet-text').val('').trigger('keyup'); 
       // submit serialized data to the server via a POST request to `/api/posts`
       $.post('tweets/', serializedTweet)
         .then((response) => {
