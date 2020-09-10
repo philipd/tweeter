@@ -36,7 +36,6 @@ const renderTweets = function(tweets) {
 const loadTweets = function() {
   $.ajax('tweets/', { method: 'GET' })
     .then(function(response) {
-      // console.log('Success: ', response);
       renderTweets(response);
     });
 };
@@ -56,11 +55,9 @@ $(document).ready(function() {
     if (tweetText.trim().length === 0) {
       $('.new-tweet .alert').text('Empty tweets are not allowed.');
       $('.new-tweet .alert').slideDown();
-      // alert('Empty tweets are not allowed')
     } else if (tweetText.length > 140) {
       $('.new-tweet .alert').text('Your tweet is too long.');
       $('.new-tweet .alert').slideDown();
-      // alert('Your tweet is too long')
     } else {
       // serialize the form data for submission to the server
       const serializedTweet = $(this).serialize();

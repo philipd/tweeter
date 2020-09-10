@@ -11,8 +11,8 @@ body > header {
   padding: 1em 0em 1em 0em;
 }
 
+/* desktop styles */
 @media only screen and (min-width: 1024px) {
-  /* desktop */
   body > header {
     margin-left: 4em;
     margin-right: 4em;

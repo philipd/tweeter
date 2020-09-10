@@ -60,10 +60,3 @@ div.userinfo .username {
 .tweet:hover {
   box-shadow: 20px 20px 0px -5px lightsteelblue;
 }
-
-
-/* @media only screen and (min-width: 1024px) {
-  section#tweets {
-    padding-right: 2em;
-  }
-} */
