@@ -7,7 +7,7 @@ const createTweetElement = function(tweetData) {
   let $article = $('<article>').addClass('tweet');
   let $header = $('<header>');
   let $userinfo = $('<div>').addClass('userinfo');
-  let $avatar = $('<img>').addClass('avatar').attr('src',tweetData.user.avatars);
+  let $avatar = $('<img>').addClass('avatar').attr('src', tweetData.user.avatars);
   let $username = $('<div>').addClass('username').text(tweetData.user.name);
   let $userid = $('<div>').addClass('userid').text(tweetData.user.handle);
   let $content = $('<div>').addClass('content').text(tweetData.content.text);
@@ -17,7 +17,7 @@ const createTweetElement = function(tweetData) {
 
   $userinfo.append($avatar, $username);
   $header.append($userinfo, $userid);
-  $footer.append($dateTweeted, $links)
+  $footer.append($dateTweeted, $links);
   $article.append($header, $content, $footer);
   return $article;
 };
@@ -47,15 +47,21 @@ $(document).ready(function() {
 
     tweetText = $('#tweet-text').val();
 
+    $('.new-tweet .alert').slideUp();
+
     if (tweetText.trim().length === 0) {
-      alert('Empty tweets are not allowed')
+      $('.new-tweet .alert').text('Empty tweets are not allowed.');
+      $('.new-tweet .alert').slideDown();
+      // alert('Empty tweets are not allowed')
     } else if (tweetText.length > 140) {
-      alert('Your tweet is too long')
+      $('.new-tweet .alert').text('Your tweet is too long.');
+      $('.new-tweet .alert').slideDown();
+      // alert('Your tweet is too long')
     } else {
       // serialize the form data for submission to the server
       const serializedTweet = $(this).serialize();
       // clear the form and trigger 'keyup' so the counter is updated
-      $('#tweet-text').val('').trigger('keyup'); 
+      $('#tweet-text').val('').trigger('keyup');
       // submit serialized data to the server via a POST request to `/api/posts`
       $.post('tweets/', serializedTweet)
         .then((response) => {
