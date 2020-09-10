@@ -11,5 +11,6 @@ const updateCounter = function(event) {
 };
 
 $(document).ready(function() {
-  $("section.new-tweet textarea").on('keyup', updateCounter);
+  let $tweetTextArea = $("section.new-tweet textarea");
+  $tweetTextArea.on('keyup', updateCounter);
 });

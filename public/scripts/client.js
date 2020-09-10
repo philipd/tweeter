@@ -12,11 +12,15 @@ const createTweetElement = function(tweetData) {
   let $userid = $('<div>').addClass('userid').text(tweetData.user.handle);
   let $content = $('<div>').addClass('content').text(tweetData.content.text);
   let $footer = $('<footer>');
-  let $dateTweeted = $('<span>').addClass('date-tweeted').text(tweetData.created_at);
-  let $links = $('<span>').text('# $ &');
+  let $dateTweeted = $('<span>').addClass('date-tweeted').text(moment(tweetData.created_at).fromNow());
+  let $links = $('<span>').text('');
+  let $flag = $('<img>').attr('src','/images/flag.svg')
+  let $retweet = $('<img>').attr('src','/images/repeat.svg')
+  let $like = $('<img>').attr('src','/images/heart.svg')
 
   $userinfo.append($avatar, $username);
   $header.append($userinfo, $userid);
+  $links.append($flag, $retweet, $like);
   $footer.append($dateTweeted, $links);
   $article.append($header, $content, $footer);
   return $article;
