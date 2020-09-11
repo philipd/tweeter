@@ -49,8 +49,16 @@ div.userinfo .username {
   padding: 1em 0.5em 1em 0.5em;
 }
 
+.tweet footer .links {
+  visibility: hidden;
+}
+
 .tweet .content {
   padding: 1em 0.5em 1em 0.5em;
+}
+
+.tweet:hover footer .links {
+  visibility: visible;
 }
 
 .tweet:hover .userid{
