@@ -12,6 +12,13 @@ There is no persistent database of tweets; data is stored in volatile memory, an
 
 Tweeter is for demonstration purposes only.
 
+## Screenshots
+
+!["Wide display for desktop or laptop resolutions."](https://github.com/philipd/tweeter/blob/master/docs/desktop.png)
+!["Tweet compose box in action, with counter updating to display number of characters remaining until the limit is reached."](https://github.com/philipd/tweeter/blob/master/docs/compose.png)
+!["An example error message, which displays when the user attempts to submit a tweet over the 140-character limit. Note that the counter has turned red as well."](https://github.com/philipd/tweeter/blob/master/docs/too-long.png)
+!["Tweets display additional information when the user hovers over them."](https://github.com/philipd/tweeter/blob/master/docs/hover.png)
+
 ## Dependencies
 
 - Express
